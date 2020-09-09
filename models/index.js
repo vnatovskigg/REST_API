@@ -1,9 +1,11 @@
-const User = require('./User');
-const Origami = require('./Origami');
-const TokenBlacklist = require('./TokenBlacklist');
+const User = require("./User");
+const Articles = require("./Articles");
+const Question = require("./Question");
+const TokenBlacklist = require("./TokenBlacklist");
 
 module.exports = {
-    User,
-    Origami,
-    TokenBlacklist
+  User,
+  Articles,
+  Question,
+  TokenBlacklist,
 };
