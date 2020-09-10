@@ -17,19 +17,21 @@ module.exports = {
 
     models.Articles.create({ articles })
       .then((createdArticles) => {
-        res.status(200).send("Successfully added articles");
+        res.status(200).send(createdArticles);
+        console.log("Successfully added articles");
       })
       .catch(next);
   },
 
   put: (req, res, next) => {
-    const id = params.id;
-    console.log(id);
+    const id = req.params.id;
     const { articles } = req.body;
     models.Articles.updateOne({ _id: id }, { articles })
-      .then((updatedOrigami) =>
-        res.status(200).send("Successfully added articles")
-      )
+      .then((updatedArticles) => {
+        console.log(updatedArticles);
+        res.status(200).send(updatedArticles);
+        console.log("Successfully updated articles");
+      })
       .catch(next);
   },
 
