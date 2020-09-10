@@ -14,25 +14,22 @@ module.exports = {
 
   post: (req, res, next) => {
     const { articles } = req.body;
-    console.log("req body", req.body);
-    // const { _id } = req.user;
 
     models.Articles.create({ articles })
       .then((createdArticles) => {
-        console.log("Created Articles", createdArticles);
-        res.send(createdArticles);
+        res.status(200).send("Successfully added articles");
       })
-      // .then(([modifiedObj, origamiObj]) => {
-      //   res.send(origamiObj);
-      // })
       .catch(next);
   },
 
   put: (req, res, next) => {
-    const id = req.params.id;
-    const { description } = req.body;
-    models.Origami.updateOne({ _id: id }, { description })
-      .then((updatedOrigami) => res.send(updatedOrigami))
+    const id = params.id;
+    console.log(id);
+    const { articles } = req.body;
+    models.Articles.updateOne({ _id: id }, { articles })
+      .then((updatedOrigami) =>
+        res.status(200).send("Successfully added articles")
+      )
       .catch(next);
   },
 
