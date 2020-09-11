@@ -3,13 +3,16 @@ const { createPortal } = require("react-dom");
 
 module.exports = {
   get: (req, res, next) => {
-    const length = req.query.length ? parseInt(req.query.length) : 20;
-    models.Origami.find()
-      .sort("-created_at")
-      .limit(length)
-      .populate("author")
-      .then((origamies) => res.send(origamies))
-      .catch(next);
+    const { title } = req.params;
+
+    // TODO GET ARTICLE AND FIND BY TITLE
+
+    // models.Articles.find()
+    //   .sort("-created_at")
+    //   .limit(length)
+    //   .populate("author")
+    //   .then((origamies) => res.send(origamies))
+    //   .catch(next);
   },
 
   post: (req, res, next) => {
@@ -28,7 +31,6 @@ module.exports = {
     const { articles } = req.body;
     models.Articles.updateOne({ _id: id }, { articles })
       .then((updatedArticles) => {
-        console.log(updatedArticles);
         res.status(200).send(updatedArticles);
         console.log("Successfully updated articles");
       })
