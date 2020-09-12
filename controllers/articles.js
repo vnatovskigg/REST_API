@@ -5,14 +5,18 @@ module.exports = {
   get: (req, res, next) => {
     const { title } = req.params;
 
-    // TODO GET ARTICLE AND FIND BY TITLE
+    models.Articles.find()
+      .then((res) => res.pop())
+      .then((articlesObj) =>
+        articlesObj.articles.find((article) => {
+          if (article.title === title) {
+            res.status(200).send(article);
+          }
 
-    // models.Articles.find()
-    //   .sort("-created_at")
-    //   .limit(length)
-    //   .populate("author")
-    //   .then((origamies) => res.send(origamies))
-    //   .catch(next);
+          res.status(404).send("Article not found");
+        })
+      )
+      .catch((err) => console.error(err));
   },
 
   post: (req, res, next) => {
