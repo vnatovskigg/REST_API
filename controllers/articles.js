@@ -6,17 +6,11 @@ module.exports = {
     const { title } = req.params;
 
     models.Articles.find()
-      .then((res) => res.pop())
-      .then((articlesObj) =>
-        articlesObj.articles.find((article) => {
-          if (article.title === title) {
-            res.status(200).send(article);
-          }
-
-          res.status(404).send("Article not found");
-        })
-      )
-      .catch((err) => console.error(err));
+      .then((response) => {
+        const articles = response.pop().articles;
+        res.status(200).send(articles);
+      })
+      .catch(next);
   },
 
   post: (req, res, next) => {
