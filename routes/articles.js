@@ -2,7 +2,7 @@ const controllers = require("../controllers");
 const router = require("express").Router();
 const { auth } = require("../utils");
 
-router.get("/:title", controllers.articles.get);
+router.get("/", controllers.articles.get);
 
 router.post("/", controllers.articles.post);
 

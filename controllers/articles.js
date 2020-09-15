@@ -3,8 +3,6 @@ const { createPortal } = require("react-dom");
 
 module.exports = {
   get: (req, res, next) => {
-    const { title } = req.params;
-
     models.Articles.find()
       .then((response) => {
         const articles = response.pop().articles;
