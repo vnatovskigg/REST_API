@@ -1,5 +1,4 @@
 const models = require("../models");
-const { createPortal } = require("react-dom");
 
 module.exports = {
   get: (req, res, next) => {
@@ -12,12 +11,30 @@ module.exports = {
   },
 
   post: (req, res, next) => {
-    const { articles } = req.body;
+    const {
+      title,
+      author,
+      description,
+      content,
+      url,
+      urlToImage,
+      publishedAt,
+      source,
+    } = req.body;
 
-    models.Articles.create({ articles })
-      .then((createdArticles) => {
-        res.status(200).send(createdArticles);
-        console.log("Successfully added articles");
+    models.Articles.create({
+      title,
+      author,
+      description,
+      content,
+      url,
+      urlToImage,
+      publishedAt,
+      source,
+    })
+      .then((createdArticle) => {
+        res.status(200).send(createdArticle);
+        console.log("Successfully added article");
       })
       .catch(next);
   },
@@ -33,10 +50,5 @@ module.exports = {
       .catch(next);
   },
 
-  delete: (req, res, next) => {
-    const id = req.params.id;
-    models.Origami.deleteOne({ _id: id })
-      .then((removedOrigami) => res.send(removedOrigami))
-      .catch(next);
-  },
+  delete: (req, res, next) => {},
 };

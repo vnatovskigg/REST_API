@@ -1,15 +1,48 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Model = mongoose.model;
-const { Array } = Schema.Types;
+const { String } = Schema.Types;
 
-const articleSchema = new Schema(
-  {
-    articles: {
-      type: Array,
-    },
-  }
-  // { timestamps: { createdAt: "created_at" } }
-);
+const articleSchema = new Schema({
+  author: {
+    type: String,
+    required: true,
+  },
+
+  content: {
+    type: String,
+    required: true,
+  },
+
+  description: {
+    type: String,
+    required: true,
+  },
+
+  publishedAt: {
+    type: String,
+    required: true,
+  },
+
+  title: {
+    type: String,
+    required: true,
+  },
+
+  url: {
+    type: String,
+    required: true,
+  },
+
+  urlToImage: {
+    type: String,
+    required: true,
+  },
+
+  source: {
+    type: String,
+    required: true,
+  },
+});
 
 module.exports = new Model("Articles", articleSchema);
