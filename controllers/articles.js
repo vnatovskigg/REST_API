@@ -4,8 +4,7 @@ module.exports = {
   get: (req, res, next) => {
     models.Articles.find()
       .then((response) => {
-        const articles = response.pop().articles;
-        res.status(200).send(articles);
+        res.status(200).send(response);
       })
       .catch(next);
   },
@@ -34,20 +33,19 @@ module.exports = {
     })
       .then((createdArticle) => {
         res.status(200).send(createdArticle);
-        console.log("Successfully added article");
       })
       .catch(next);
   },
 
   put: (req, res, next) => {
-    const id = req.params.id;
-    const { articles } = req.body;
-    models.Articles.updateOne({ _id: id }, { articles })
-      .then((updatedArticles) => {
-        res.status(200).send(updatedArticles);
-        console.log("Successfully updated articles");
-      })
-      .catch(next);
+    // const id = req.params.id;
+    // const { articles } = req.body;
+    // models.Articles.updateOne({ _id: id }, { articles })
+    //   .then((updatedArticles) => {
+    //     res.status(200).send(updatedArticles);
+    //     console.log("Successfully updated articles");
+    //   })
+    //   .catch(next);
   },
 
   delete: (req, res, next) => {},
