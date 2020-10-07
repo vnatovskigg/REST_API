@@ -32,6 +32,7 @@ module.exports = {
       source,
     })
       .then((createdArticle) => {
+        console.log(createdArticle);
         res.status(200).send(createdArticle);
       })
       .catch(next);
