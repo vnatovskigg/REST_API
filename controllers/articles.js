@@ -32,7 +32,6 @@ module.exports = {
       source,
     })
       .then((createdArticle) => {
-        console.log(createdArticle);
         res.status(200).send(createdArticle);
       })
       .catch(next);
@@ -49,5 +48,12 @@ module.exports = {
     //   .catch(next);
   },
 
-  delete: (req, res, next) => {},
+  delete: (req, res, next) => {
+    models.Articles.remove({}, function (err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.send(204);
+    });
+  },
 };
