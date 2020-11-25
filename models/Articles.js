@@ -11,12 +11,7 @@ const articleSchema = new Schema({
 
   content: {
     type: String,
-    required: true,
-  },
-
-  description: {
-    type: String,
-    required: true,
+    required: false,
   },
 
   publishedAt: {
@@ -37,12 +32,7 @@ const articleSchema = new Schema({
   urlToImage: {
     type: String,
     required: true,
-  },
-
-  source: {
-    type: String,
-    required: true,
-  },
+  }
 });
 
 module.exports = new Model("Articles", articleSchema);
