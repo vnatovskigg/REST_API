@@ -6,7 +6,7 @@ const { String } = Schema.Types;
 const articleSchema = new Schema({
   author: {
     type: String,
-    required: true,
+    required: false,
   },
 
   content: {
