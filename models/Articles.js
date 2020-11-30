@@ -32,6 +32,16 @@ const articleSchema = new Schema({
   urlToImage: {
     type: String,
     required: true,
+  },
+
+  uid: {
+    type: String,
+    required: true
+  },
+
+  segment: {
+    type: String,
+    required: true
   }
 });
 
