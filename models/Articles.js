@@ -4,44 +4,44 @@ const Model = mongoose.model;
 const { String } = Schema.Types;
 
 const articleSchema = new Schema({
+  title: {
+    type: String,
+    required: false,
+  },
+
+  summary: {
+    type: String,
+    required: false,
+  },
+
+  published: {
+    type: Number,
+    required: false,
+  },
+
   author: {
     type: String,
     required: false,
   },
 
-  content: {
+  url: {
     type: String,
     required: false,
   },
 
-  publishedAt: {
+  thumbnail: {
     type: String,
-    required: true,
-  },
-
-  title: {
-    type: String,
-    required: true,
-  },
-
-  url: {
-    type: String,
-    required: true,
-  },
-
-  urlToImage: {
-    type: String,
-    required: true,
+    required: false,
   },
 
   uid: {
     type: String,
-    required: true
+    required: false,
   },
 
   segment: {
     type: String,
-    required: true
+    required: false,  
   }
 });
 
