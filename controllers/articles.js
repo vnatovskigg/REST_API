@@ -12,24 +12,24 @@ module.exports = {
   post: (req, res, next) => {
     const {
       title,
+      summary,
+      published,
       author,
-      description,
-      content,
       url,
-      urlToImage,
-      publishedAt,
-      source,
+      thumbnail,
+      uid,
+      segment,
     } = req.body;
 
     models.Articles.create({
       title,
+      summary,
+      published,
       author,
-      description,
-      content,
       url,
-      urlToImage,
-      publishedAt,
-      source,
+      thumbnail,
+      uid,
+      segment
     })
       .then((createdArticle) => {
         res.status(200).send(createdArticle);
