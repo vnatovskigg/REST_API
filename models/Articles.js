@@ -6,7 +6,7 @@ const { String } = Schema.Types;
 const articleSchema = new Schema({
   title: {
     type: String,
-    required: false,
+    required: true,
   },
 
   summary: {
@@ -16,32 +16,32 @@ const articleSchema = new Schema({
 
   published: {
     type: Number,
-    required: false,
+    required: true,
   },
 
   author: {
     type: String,
-    required: false,
+    required: true,
   },
 
   url: {
     type: String,
-    required: false,
+    required: true,
   },
 
   thumbnail: {
     type: String,
-    required: false,
+    required: true,
   },
 
   uid: {
     type: String,
-    required: false,
+    required: true,
   },
 
   segment: {
     type: String,
-    required: false,  
+    required: true,  
   }
 });
 

@@ -2,7 +2,8 @@ const models = require("../models");
 
 module.exports = {
   get: (req, res, next) => {
-    models.Articles.find()
+    const query = req.params.segment;
+    models.Articles.find({segment: `${query}`})
       .then((response) => {
         res.status(200).send(response);
       })
