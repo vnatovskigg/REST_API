@@ -1,13 +1,12 @@
 const models = require("../models");
 
 module.exports = {
-  get: (req, res, next) => {
+  get: async (req, res, next) => {
     const query = req.params.segment;
-    models.Articles.find({segment: `${query}`})
-      .then((response) => {
-        res.status(200).send(response);
-      })
-      .catch(next);
+    console.log("QUERY ", query);
+    const response = await models.Articles.find({ segment: `${query}` }).exec();
+    console.log("RESPONSE ", response);
+    res.status(200).send(response);
   },
 
   post: (req, res, next) => {
